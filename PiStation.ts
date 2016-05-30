@@ -1,27 +1,26 @@
 import * as Rx from 'rxjs/Rx';
 import {Subject} from 'rxjs/Subject'
 import Subscription = Rx.Subscription;
-import * as io from "socket.io";
-import Socket = SocketIO.Socket;
 
 export interface ServerEvent {
-    socket: SocketIO.Socket;
+    socket: any;
     data: any;
 }
 
+declare var io;
 export class Server {
-    private socketServer:SocketIO.Server;
+    private socketServer:any;
     private modules:Module[] = [];
     private listeners:string[];
 
-    public clientConnections:Rx.Observable<SocketIO.Socket>;
+    public clientConnections:Rx.Observable<any>;
 
     constructor(private port:number = 31415) {
         this.socketServer = io(port);
         console.log('Server Started');
 
         this.clientConnections = Rx.Observable.create((observer : any) => {
-            this.socketServer.on(`${Events.CLIENT_CONNECTED}`,(socket : SocketIO.Socket) => observer.next(socket))
+            this.socketServer.on(`${Events.CLIENT_CONNECTED}`,(socket : any) => observer.next(socket))
 
             this.socketServer.on('error', (error : any) => {
                 console.log('ERROR', error);
@@ -30,9 +29,9 @@ export class Server {
         });
 
         this.clientConnections
-            .forEach((socket : SocketIO.Socket) => console.log(`New client connection | ID: ${socket.client.id} IP address: ${socket.client.conn.remoteAddress}`));
+            .forEach((socket) => console.log(`New client connection | ID: ${socket.client.id} IP address: ${socket.client.conn.remoteAddress}`));
         this.clientConnections
-            .forEach((socket : SocketIO.Socket) => this.registerEventsForClient(socket));
+            .forEach((socket) => this.registerEventsForClient(socket));
 
         this.on(`${Events.GET_ALL_MODULES}`).subscribe( (event : ServerEvent) => {
             let json = this.modules.map(module => module.toDto());
@@ -48,12 +47,12 @@ export class Server {
 
     on(event:string):Rx.Observable<ServerEvent> {
         return this.clientConnections
-            .flatMap((socket : SocketIO.Socket) =>
+            .flatMap((socket : any) =>
                 Rx.Observable.fromEvent(socket, event)
                     .map((data: any) => <ServerEvent>{data: data, socket: socket}));
     }
 
-    private registerEventsForClient(socket:SocketIO.Socket){
+    private registerEventsForClient(socket:any){
         this.modules
             .forEach((module : Module) => { module.registerFunctionCallsForClient(socket)});
     }
@@ -76,7 +75,7 @@ export class Module implements AbstractModule {
         functionArray.forEach(func => this.addFunction(new Function(func.name, func.arguments)));
     }
 
-    registerFunctionCallsForClient(clientSocket : SocketIO.Socket){
+    registerFunctionCallsForClient(clientSocket : any){
         this.functions.forEach((func:Function) =>
             Rx.Observable
                 .fromEvent(clientSocket, `${func.eventName}`)
