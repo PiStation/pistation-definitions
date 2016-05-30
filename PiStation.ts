@@ -1,6 +1,7 @@
 import * as Rx from 'rxjs/Rx';
 import {Subject} from 'rxjs/Subject'
 import Subscription = Rx.Subscription;
+
 export interface AbstractModule {
     name: string;
     functions: Function[]
@@ -22,7 +23,9 @@ export class Module implements AbstractModule {
             Rx.Observable
                 .fromEvent(clientSocket, `${func.eventName}`)
                 .map((json : any) => new Function(func.name, json))
-                .forEach((func : any) => console.log('function called ', func)));
+                .forEach((func : Function) => {
+                    this[func.name](() => {console.log('server received callback from module being done')}, ...func.arguments);
+                }));
 
     }
 
