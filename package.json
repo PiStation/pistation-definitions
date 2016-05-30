@@ -2,7 +2,7 @@
   "name": "pistation-definitions",
   "version": "1.0.0",
   "description": "Shared source for pistation projects",
-  "main": "index.js",
+  "main": "PiStation.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
