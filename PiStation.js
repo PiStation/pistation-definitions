@@ -6,48 +6,6 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var Rx = require('rxjs/Rx');
 var Subject_1 = require('rxjs/Subject');
-var Server = (function () {
-    function Server(port) {
-        var _this = this;
-        if (port === void 0) { port = 31415; }
-        this.port = port;
-        this.modules = [];
-        this.socketServer = io(port);
-        console.log('Server Started');
-        this.clientConnections = Rx.Observable.create(function (observer) {
-            _this.socketServer.on("" + Events.CLIENT_CONNECTED, function (socket) { return observer.next(socket); });
-            _this.socketServer.on('error', function (error) {
-                console.log('ERROR', error);
-                observer.error(error);
-            });
-        });
-        this.clientConnections
-            .forEach(function (socket) { return console.log("New client connection | ID: " + socket.client.id + " IP address: " + socket.client.conn.remoteAddress); });
-        this.clientConnections
-            .forEach(function (socket) { return _this.registerEventsForClient(socket); });
-        this.on("" + Events.GET_ALL_MODULES).subscribe(function (event) {
-            var json = _this.modules.map(function (module) { return module.toDto(); });
-            console.log('Returning modules:', json);
-            event.socket.emit("" + Events.GET_ALL_MODULES, json);
-        });
-    }
-    Server.prototype.addModule = function (module) {
-        return this.modules.push(module);
-    };
-    Server.prototype.on = function (event) {
-        return this.clientConnections
-            .flatMap(function (socket) {
-            return Rx.Observable.fromEvent(socket, event)
-                .map(function (data) { return { data: data, socket: socket }; });
-        });
-    };
-    Server.prototype.registerEventsForClient = function (socket) {
-        this.modules
-            .forEach(function (module) { module.registerFunctionCallsForClient(socket); });
-    };
-    return Server;
-}());
-exports.Server = Server;
 var Module = (function () {
     function Module(name, functionArray) {
         var _this = this;
