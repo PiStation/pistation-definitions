@@ -1,0 +1,19 @@
+{
+  "name": "pistation-definitions",
+  "version": "1.0.0",
+  "description": "Shared source for pistation projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PiStation/pistation-definitions.git"
+  },
+  "author": "Rob Quist & Robbert van Markus",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/PiStation/pistation-definitions/issues"
+  },
+  "homepage": "https://github.com/PiStation/pistation-definitions#readme"
+}
