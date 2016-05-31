@@ -4,7 +4,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Rx = require('rxjs/Rx');
 var Subject_1 = require('rxjs/Subject');
 var Module = (function () {
     function Module(name, functionArray) {
@@ -14,14 +13,6 @@ var Module = (function () {
         this.name = name;
         functionArray.forEach(function (func) { return _this.addFunction(new Function(func.name, func.arguments)); });
     }
-    Module.prototype.registerFunctionCallsForClient = function (clientSocket) {
-        this.functions.forEach(function (func) {
-            return Rx.Observable
-                .fromEvent(clientSocket, "" + func.eventName)
-                .map(function (json) { return new Function(func.name, json); })
-                .forEach(function (func) { return console.log('function called ', func); });
-        });
-    };
     Module.prototype.toString = function () {
         return this.name;
     };

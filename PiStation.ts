@@ -13,20 +13,8 @@ export class Module implements AbstractModule {
     functions: Function[] = [];
 
     constructor(name: string, functionArray: Function[] = []) {
-
         this.name = name;
         functionArray.forEach(func => this.addFunction(new Function(func.name, func.arguments)));
-    }
-
-    registerFunctionCallsForClient(clientSocket : any){
-        this.functions.forEach((func:Function) =>
-            Rx.Observable
-                .fromEvent(clientSocket, `${func.eventName}`)
-                .map((json : any) => new Function(func.name, json))
-                .forEach((func : Function) => {
-                    this[func.name](() => {console.log('server received callback from module being done')}, ...func.arguments);
-                }));
-
     }
 
     toString() : string {
