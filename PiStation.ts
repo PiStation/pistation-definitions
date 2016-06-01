@@ -115,3 +115,10 @@ export class Events {
     static CLIENT_DISCONNECTED = new ServerEvent('disconnect');
     static GET_ALL_MODULES = new SystemEvent('getAllModules');
 }
+
+export class Action {
+    text: string;
+    cols: number;
+    rows: number;
+    color: string;
+}
