@@ -8,7 +8,6 @@ export interface AbstractModule {
     register?();
 }
 export class Module implements AbstractModule {
-    functionCallStream : Rx.Observable<Function>;
     name: string;
     functions: Function[] = [];
 
@@ -38,12 +37,10 @@ export class Function {
     arguments: Argument[];
     name: string;
     moduleName : string;
-    callStream : Subject<Argument[]|{}>;
 
-    constructor(name: string, argumentArray: Argument[] = []) {
+    constructor(name: string, argumentArray: Argument[] = [], public moduleName?) {
         this.name = name;
         this.arguments = argumentArray;
-        this.callStream = new Subject();
     }
 
     toDto(){
@@ -68,8 +65,9 @@ export class Function {
 export class Argument {
     type: string;
     name: string;
+    value: string;
 
-    constructor(type: string, name:string) {
+    constructor(type: string, name:string, public value = '') {
         this.type = type;
         this.name = name;
     }
@@ -117,8 +115,10 @@ export class Events {
 }
 
 export class Action {
-    text: string;
+    name: string;
     cols: number;
     rows: number;
     color: string;
+    func: Function;
+    arguments: Argument[];
 }
