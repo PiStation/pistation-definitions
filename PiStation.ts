@@ -1,12 +1,15 @@
-import * as Rx from 'rxjs/Rx';
-import {Subject} from 'rxjs/Subject'
-import Subscription = Rx.Subscription;
 
 export interface AbstractModule {
     name: string;
     functions: Function[]
     register?();
 }
+
+export interface AbstractConnector {
+    name: string;
+    register?();
+}
+
 export class Module implements AbstractModule {
     name: string;
     functions: Function[] = [];
@@ -33,10 +36,24 @@ export class Module implements AbstractModule {
     }
 }
 
+/**
+ * General connector class so that the connector is able to access the API logic (soon to come?)
+ */
+export class Connector implements AbstractConnector {
+    name: string;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    toString() : string {
+        return this.name;
+    }
+}
+
 export class Function {
     arguments: Argument[];
     name: string;
-    moduleName : string;
 
     constructor(name: string, argumentArray: Argument[] = [], public moduleName?) {
         this.name = name;
@@ -65,7 +82,6 @@ export class Function {
 export class Argument {
     type: string;
     name: string;
-    value: string;
 
     constructor(type: string, name:string, public value = '') {
         this.type = type;

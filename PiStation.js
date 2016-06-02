@@ -4,7 +4,6 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Subject_1 = require('rxjs/Subject');
 var Module = (function () {
     function Module(name, functionArray) {
         var _this = this;
@@ -29,12 +28,25 @@ var Module = (function () {
     return Module;
 }());
 exports.Module = Module;
+/**
+ * General connector class so that the connector is able to access the API logic (soon to come?)
+ */
+var Connector = (function () {
+    function Connector(name) {
+        this.name = name;
+    }
+    Connector.prototype.toString = function () {
+        return this.name;
+    };
+    return Connector;
+}());
+exports.Connector = Connector;
 var Function = (function () {
-    function Function(name, argumentArray) {
+    function Function(name, argumentArray, moduleName) {
         if (argumentArray === void 0) { argumentArray = []; }
+        this.moduleName = moduleName;
         this.name = name;
         this.arguments = argumentArray;
-        this.callStream = new Subject_1.Subject();
     }
     Function.prototype.toDto = function () {
         return {
@@ -59,7 +71,9 @@ var Function = (function () {
 }());
 exports.Function = Function;
 var Argument = (function () {
-    function Argument(type, name) {
+    function Argument(type, name, value) {
+        if (value === void 0) { value = ''; }
+        this.value = value;
         this.type = type;
         this.name = name;
     }
@@ -113,3 +127,9 @@ var Events = (function () {
     return Events;
 }());
 exports.Events = Events;
+var Action = (function () {
+    function Action() {
+    }
+    return Action;
+}());
+exports.Action = Action;
