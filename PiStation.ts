@@ -112,6 +112,7 @@ export class Events {
     static CLIENT_CONNECTED = new ServerEvent('connection');
     static CLIENT_DISCONNECTED = new ServerEvent('disconnect');
     static GET_ALL_MODULES = new SystemEvent('getAllModules');
+    static GET_ALL_ACTIONS = new SystemEvent('getAllActions');
 }
 
 export class Action {
