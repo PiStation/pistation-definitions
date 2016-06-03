@@ -88,6 +88,46 @@ export class Argument {
         this.name = name;
     }
 }
+export class ArgumentInput<T> {
+    value:T;
+    key:string;
+    label:string;
+    required:boolean;
+    controlType:string;
+    constructor(options:{
+        value?:T,
+        key?:string,
+        label?:string,
+        required?:boolean,
+        order?:number,
+        controlType?:string
+    } = {}){
+        this.value = options.value;
+        this.key = options.key || '';
+        this.label = options.label || '';
+        this.required = !!options.required;
+        this.controlType = options.controlType || '';
+    }
+}
+
+export class ArgumentInputTextbox extends ArgumentInput<string>{
+    controlType = 'textbox';
+    type:string;
+
+    constructor(options:{} = {}){
+        super(options);
+        this.type = options['type'] || '';
+    }
+}
+export class ArgumentInputBoolean extends ArgumentInput<string>{
+    controlType = 'checkbox';
+    type:string;
+
+    constructor(options:{} = {}){
+        super(options);
+        this.type = options['type'] || '';
+    }
+}
 
 export class ServerEvent {
     name: string;
