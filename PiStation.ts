@@ -1,4 +1,4 @@
-import {Argument, ArgumentBoolean, ArgumentTextbox} from './argument-inputs/argument';
+import {Argument} from './argument-inputs/argument';
 export interface AbstractModule {
     name: string;
     functions: Function[]
@@ -79,7 +79,9 @@ export class Function {
     }
 }
 
-export {Argument, ArgumentBoolean, ArgumentTextbox};
+export {Argument};
+export {ArgumentBoolean} from './argument-inputs/argument-boolean';
+export {ArgumentTextbox} from './argument-inputs/argument-textbox';
 
 export class ServerEvent {
     name: string;

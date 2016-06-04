@@ -1,6 +1,3 @@
-export {ArgumentBoolean} from './argument-boolean';
-export {ArgumentTextbox} from './argument-textbox';
-
 export class Argument<T> {
     value:T;
     key:string;

@@ -6,8 +6,6 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var argument_1 = require('./argument-inputs/argument');
 exports.Argument = argument_1.Argument;
-exports.ArgumentBoolean = argument_1.ArgumentBoolean;
-exports.ArgumentTextbox = argument_1.ArgumentTextbox;
 var Module = (function () {
     function Module(name, functionArray) {
         var _this = this;
@@ -74,6 +72,10 @@ var Function = (function () {
     return Function;
 }());
 exports.Function = Function;
+var argument_boolean_1 = require('./argument-inputs/argument-boolean');
+exports.ArgumentBoolean = argument_boolean_1.ArgumentBoolean;
+var argument_textbox_1 = require('./argument-inputs/argument-textbox');
+exports.ArgumentTextbox = argument_textbox_1.ArgumentTextbox;
 var ServerEvent = (function () {
     function ServerEvent(name) {
         this.name = name;
