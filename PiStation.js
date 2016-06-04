@@ -24,7 +24,7 @@ var Module = (function () {
     Module.prototype.toDto = function () {
         return {
             name: this.name,
-            functions: this.functions.map(function (func) { return func.toDto(); }),
+            functions: this.functions.map(function (func) { return func.toDto(); })
         };
     };
     return Module;
