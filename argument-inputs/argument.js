@@ -1,3 +1,4 @@
+"use strict";
 var argument_boolean_1 = require('./argument-boolean');
 exports.ArgumentBoolean = argument_boolean_1.ArgumentBoolean;
 var argument_textbox_1 = require('./argument-textbox');
@@ -12,5 +13,5 @@ var Argument = (function () {
         this.controlType = options.controlType || '';
     }
     return Argument;
-})();
+}());
 exports.Argument = Argument;

@@ -1,4 +1,4 @@
-export {Argument, ArgumentBoolean, ArgumentTextbox} from './argument-inputs/argument';
+import {Argument, ArgumentBoolean, ArgumentTextbox} from './argument-inputs/argument';
 export interface AbstractModule {
     name: string;
     functions: Function[]
@@ -52,10 +52,10 @@ export class Connector implements AbstractConnector {
 }
 
 export class Function {
-    arguments: Argument[];
+    arguments: Argument<any>[];
     name: string;
 
-    constructor(name: string, argumentArray: Argument[] = [], public moduleName?) {
+    constructor(name: string, argumentArray: Argument<any>[] = [], public moduleName?) {
         this.name = name;
         this.arguments = argumentArray;
     }
@@ -67,7 +67,7 @@ export class Function {
         }
     }
 
-    addArguments(arg: Argument) {
+    addArguments(arg: Argument<any>) {
         this.arguments.push(arg);
     }
 
@@ -127,5 +127,5 @@ export class Action {
     rows: number;
     color: string;
     func: Function;
-    arguments: Argument[];
+    arguments: Argument<any>[];
 }
