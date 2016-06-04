@@ -3,15 +3,15 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var argument_input_1 = require('./argument-input');
-var ArgumentInputBoolean = (function (_super) {
-    __extends(ArgumentInputBoolean, _super);
-    function ArgumentInputBoolean(options) {
+var argument_1 = require('./argument');
+var ArgumentBoolean = (function (_super) {
+    __extends(ArgumentBoolean, _super);
+    function ArgumentBoolean(options) {
         if (options === void 0) { options = {}; }
         _super.call(this, options);
         this.controlType = 'checkbox';
         this.type = options['type'] || '';
     }
-    return ArgumentInputBoolean;
-})(argument_input_1.ArgumentInput);
-exports.ArgumentInputBoolean = ArgumentInputBoolean;
+    return ArgumentBoolean;
+})(argument_1.Argument);
+exports.ArgumentBoolean = ArgumentBoolean;

@@ -1,4 +1,4 @@
-export {Argument, ArgumentInputBoolean, ArgumentInputTextbox} from './argument-inputs/argument-input';
+export {Argument, ArgumentBoolean, ArgumentTextbox} from './argument-inputs/argument';
 export interface AbstractModule {
     name: string;
     functions: Function[]

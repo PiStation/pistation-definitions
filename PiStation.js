@@ -3,6 +3,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var argument_1 = require('./argument-inputs/argument');
+exports.Argument = argument_1.Argument;
+exports.ArgumentBoolean = argument_1.ArgumentBoolean;
+exports.ArgumentTextbox = argument_1.ArgumentTextbox;
 var Module = (function () {
     function Module(name, functionArray) {
         var _this = this;
