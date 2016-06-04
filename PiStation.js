@@ -4,6 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var argument_input_1 = require('./argument-inputs/argument-input');
+exports.ArgumentInput = argument_input_1.ArgumentInput;
+exports.ArgumentInputBoolean = argument_input_1.ArgumentInputBoolean;
+exports.ArgumentInputTextbox = argument_input_1.ArgumentInputTextbox;
 var Module = (function () {
     function Module(name, functionArray) {
         var _this = this;
@@ -124,6 +128,7 @@ var Events = (function () {
     Events.CLIENT_CONNECTED = new ServerEvent('connection');
     Events.CLIENT_DISCONNECTED = new ServerEvent('disconnect');
     Events.GET_ALL_MODULES = new SystemEvent('getAllModules');
+    Events.GET_ALL_ACTIONS = new SystemEvent('getAllActions');
     return Events;
 }());
 exports.Events = Events;
