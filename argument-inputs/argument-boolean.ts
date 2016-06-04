@@ -1,10 +1,10 @@
-import {Argument, ArgumentOptions} from './argument';
+import {Argument} from './argument';
 
 export class ArgumentBoolean extends Argument<string>{
     controlType = 'checkbox';
     type:string;
 
-    constructor(options:ArgumentOptions = {}){
+    constructor(options:{} = {}){
         super(options);
         this.type = options['type'] || '';
     }
