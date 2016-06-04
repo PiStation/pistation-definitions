@@ -79,6 +79,8 @@ export class Function {
     }
 }
 
+export {Argument, ArgumentBoolean, ArgumentTextbox};
+
 export class ServerEvent {
     name: string;
     constructor(name : string) {
