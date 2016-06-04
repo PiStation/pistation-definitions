@@ -1,4 +1,4 @@
-import {Argument, ArgumentBoolean, ArgumentTextbox} from './argument-inputs/argument';
+import {Argument, ArgumentOptions, ArgumentBoolean, ArgumentTextbox} from './argument-inputs/argument';
 export interface AbstractModule {
     name: string;
     functions: Function[]
