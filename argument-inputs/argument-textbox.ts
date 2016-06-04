@@ -1,6 +1,6 @@
-import {ArgumentInput} from './argument-input';
+import {Argument} from './argument';
 
-export class ArgumentInputTextbox extends ArgumentInput<string>{
+export class ArgumentInputTextbox extends Argument<string>{
     controlType = 'textbox';
     type:string;
 

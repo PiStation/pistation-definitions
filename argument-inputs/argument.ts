@@ -1,7 +1,7 @@
 export {ArgumentInputBoolean} from './argument-input-boolean';
 export {ArgumentInputTextbox} from './argument-input-textbox';
 
-export class ArgumentInput<T> {
+export class Argument<T> {
     value:T;
     key:string;
     label:string;

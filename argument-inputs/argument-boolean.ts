@@ -1,6 +1,6 @@
-import {ArgumentInput} from './argument-input';
+import {Argument} from './argument';
 
-export class ArgumentInputBoolean extends ArgumentInput<string>{
+export class ArgumentInputBoolean extends Argument<string>{
     controlType = 'checkbox';
     type:string;
 

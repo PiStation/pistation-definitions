@@ -1,4 +1,4 @@
-export {ArgumentInput, ArgumentInputBoolean, ArgumentInputTextbox} from './argument-inputs/argument-input';
+export {Argument, ArgumentInputBoolean, ArgumentInputTextbox} from './argument-inputs/argument-input';
 export interface AbstractModule {
     name: string;
     functions: Function[]
@@ -76,16 +76,6 @@ export class Function {
     }
     get eventName() {
         return `${this.moduleName || 'AnonymousFunction'}:${this.name}`;
-    }
-}
-
-export class Argument {
-    type: string;
-    name: string;
-
-    constructor(type: string, name:string, public value = '') {
-        this.type = type;
-        this.name = name;
     }
 }
 

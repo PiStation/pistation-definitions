@@ -1,4 +1,3 @@
-"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -14,5 +13,5 @@ var ArgumentInputBoolean = (function (_super) {
         this.type = options['type'] || '';
     }
     return ArgumentInputBoolean;
-}(argument_input_1.ArgumentInput));
+})(argument_input_1.ArgumentInput);
 exports.ArgumentInputBoolean = ArgumentInputBoolean;
