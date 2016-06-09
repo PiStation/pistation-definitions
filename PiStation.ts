@@ -59,6 +59,7 @@ export class Connector implements AbstractConnector {
 export class Function {
     arguments: Argument<any>[];
     name: string;
+    updateStream: Rx.Observable<string>;
 
     constructor(name: string, argumentArray: Argument<any>[] = [], public moduleName?) {
         this.name = name;
