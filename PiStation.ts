@@ -79,8 +79,17 @@ export class Function {
     toString() : string {
         return this.name;
     }
+
     get eventName() {
-        return `${this.moduleName || 'AnonymousFunction'}:${this.name}`;
+        return `${this.moduleName}:${this.name}`;
+    }
+
+    get completedEventName() {
+        return this.eventName + ':COMPLETED';
+    }
+
+    get errorEventName() {
+        return this.eventName + ':ERROR';
     }
 }
 

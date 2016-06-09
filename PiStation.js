@@ -67,7 +67,21 @@ var Function = (function () {
     };
     Object.defineProperty(Function.prototype, "eventName", {
         get: function () {
-            return (this.moduleName || 'AnonymousFunction') + ":" + this.name;
+            return this.moduleName + ":" + this.name;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Function.prototype, "completedEventName", {
+        get: function () {
+            return this.eventName + ':COMPLETED';
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(Function.prototype, "errorEventName", {
+        get: function () {
+            return this.eventName + ':ERROR';
         },
         enumerable: true,
         configurable: true
