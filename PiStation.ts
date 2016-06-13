@@ -1,4 +1,5 @@
 import {Argument} from './argument-inputs/argument';
+import * as Rx from 'rxjs/Rx';
 
 export {Argument};
 export {ArgumentBoolean} from './argument-inputs/argument-boolean';
