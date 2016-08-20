@@ -1,3 +1,4 @@
+"use strict";
 var Argument = (function () {
     function Argument(options) {
         if (options === void 0) { options = {}; }
@@ -8,5 +9,5 @@ var Argument = (function () {
         this.controlType = options.controlType || '';
     }
     return Argument;
-})();
+}());
 exports.Argument = Argument;

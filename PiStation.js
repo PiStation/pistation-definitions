@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -31,7 +32,7 @@ var Module = (function () {
         };
     };
     return Module;
-})();
+}());
 exports.Module = Module;
 /**
  * General connector class so that the connector is able to access the API logic (soon to come?)
@@ -44,7 +45,7 @@ var Connector = (function () {
         return this.name;
     };
     return Connector;
-})();
+}());
 exports.Connector = Connector;
 var Function = (function () {
     function Function(name, argumentArray, moduleName) {
@@ -87,7 +88,7 @@ var Function = (function () {
         configurable: true
     });
     return Function;
-})();
+}());
 exports.Function = Function;
 var ServerEvent = (function () {
     function ServerEvent(name) {
@@ -97,7 +98,7 @@ var ServerEvent = (function () {
         return this.name;
     };
     return ServerEvent;
-})();
+}());
 exports.ServerEvent = ServerEvent;
 var SystemEvent = (function (_super) {
     __extends(SystemEvent, _super);
@@ -105,7 +106,7 @@ var SystemEvent = (function (_super) {
         _super.call(this, name);
     }
     return SystemEvent;
-})(ServerEvent);
+}(ServerEvent));
 exports.SystemEvent = SystemEvent;
 var ModuleEvent = (function (_super) {
     __extends(ModuleEvent, _super);
@@ -125,7 +126,7 @@ var ModuleEvent = (function (_super) {
         return this.functionName;
     };
     return ModuleEvent;
-})(ServerEvent);
+}(ServerEvent));
 exports.ModuleEvent = ModuleEvent;
 var Events = (function () {
     function Events() {
@@ -135,11 +136,11 @@ var Events = (function () {
     Events.GET_ALL_MODULES = new SystemEvent('getAllModules');
     Events.GET_ALL_ACTIONS = new SystemEvent('getAllActions');
     return Events;
-})();
+}());
 exports.Events = Events;
 var Action = (function () {
     function Action() {
     }
     return Action;
-})();
+}());
 exports.Action = Action;

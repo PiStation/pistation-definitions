@@ -1,3 +1,4 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -14,5 +15,5 @@ var ArgumentTextbox = (function (_super) {
         this.type = options['type'] || '';
     }
     return ArgumentTextbox;
-})(argument_1.Argument);
+}(argument_1.Argument));
 exports.ArgumentTextbox = ArgumentTextbox;
