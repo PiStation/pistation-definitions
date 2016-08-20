@@ -4,6 +4,7 @@ import * as Rx from 'rxjs/Rx';
 export {Argument};
 export {ArgumentBoolean} from './argument-inputs/argument-boolean';
 export {ArgumentTextbox} from './argument-inputs/argument-textbox';
+export {ArgumentMultiple} from './argument-inputs/argument-multiple';
 
 export interface AbstractModule {
     name: string;
