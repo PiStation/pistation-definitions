@@ -5,7 +5,13 @@ export class ArgumentMultiple extends Argument<string>{
     options: {key: string, value: string}[] = [];
     selected;
 
-    constructor(options:{} = {}){
+    constructor(options:{options: {key : string, value: string}[],
+        key?:string,
+        label?:string,
+        required?:boolean,
+        order?:number,
+        controlType?:string}){
         super(options);
+        this.options = options.options;
     }
 }

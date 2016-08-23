@@ -7,10 +7,10 @@ var argument_1 = require('./argument');
 var ArgumentMultiple = (function (_super) {
     __extends(ArgumentMultiple, _super);
     function ArgumentMultiple(options) {
-        if (options === void 0) { options = {}; }
         _super.call(this, options);
         this.controlType = 'dropdown';
         this.options = [];
+        this.options = options.options;
     }
     return ArgumentMultiple;
 })(argument_1.Argument);
